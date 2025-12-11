@@ -2,6 +2,33 @@
 
 A complete DevOps solution for deploying WordPress with Nginx (OpenResty) and MySQL on Kubernetes using Helm charts, with Prometheus monitoring integration.
 
+## 📦 Docker Images (Docker Hub: `pushpendra111/`)
+- **`pushpendra111/syfe-mysql:v1`** - MySQL 5.7 database backend
+- **`pushpendra111/syfe-wordpress:v1`** - WordPress PHP8.2-FPM application server
+- **`pushpendra111/syfe-nginx:v1`** - Nginx/OpenResty with Lua scripting
+
+## 📋 Quick Summary
+
+**Helm Chart** (`helm/wordpress-stack/`):
+- Complete Kubernetes manifests as Helm templates for easy deployment
+- PersistentVolumeClaims for MySQL and WordPress data
+- Deployments for MySQL, WordPress, and Nginx with proper service discovery
+- Nginx ConfigMap with FastCGI proxying to WordPress
+- ServiceMonitor for Prometheus integration
+
+**Monitoring Setup**:
+- Prometheus metrics collection configured
+- Nginx metrics exposed via sidecar exporter
+- Kubernetes pod metrics (CPU, memory, request counts)
+- Comprehensive monitoring documentation
+
+**Key Features**:
+- Infrastructure-as-Code using Helm
+- Production-ready with persistent storage
+- Prometheus/Grafana monitoring integration
+- Lua-enabled Nginx compiled with all required flags
+- All code documented and ready for deployment with `helm install`
+
 ---
 
 <img width="1176" height="963" alt="wordpress page" src="https://github.com/user-attachments/assets/34281d3a-9503-45de-ab05-fa8d87693c70" />
