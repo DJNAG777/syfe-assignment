@@ -35,6 +35,54 @@ A complete DevOps solution for deploying WordPress with Nginx (OpenResty) and My
 <img width="696" height="673" alt="metrics" src="https://github.com/user-attachments/assets/bc1b99e7-7bcc-42d0-b3d6-f58848e3b576" />
 
 
+## 📊 **Deployment Proof**
+
+### Kubernetes Resources Running
+
+```
+NAME                        READY   STATUS    RESTARTS   AGE
+pod/mysql-767dbc6f85-9svw6      1/1     Running   0          38m
+pod/nginx-5f5fd66f57-qg2vh      2/2     Running   0          11m
+pod/wordpress-89449b7f6-rs7zn   1/1     Running   0          5m54s
+
+DEPLOYMENT STATUS:
+NAME        READY   UP-TO-DATE   AVAILABLE
+mysql       1/1     1            1
+nginx       1/1     1            1
+wordpress   1/1     1            1
+```
+
+### Services Deployed
+
+```
+NAME                   TYPE           CLUSTER-IP      PORT(S)
+kubernetes             ClusterIP      10.96.0.1       443/TCP
+my-release-wordpress   LoadBalancer   10.108.3.107    80:31646/TCP,9113:31395/TCP
+mysql-service          ClusterIP      10.107.128.31   3306/TCP
+wordpress-service      ClusterIP      10.98.75.175    9000/TCP
+```
+
+### Helm Release Status
+
+```
+NAME        NAMESPACE  REVISION  STATUS    CHART
+my-release  default    4         deployed  wordpress-stack-0.1.0
+```
+
+### Access URLs
+
+**Via Minikube Service:**
+```
+WordPress:  http://127.0.0.1:5769
+Metrics:    http://127.0.0.1:5770/metrics
+```
+
+---
+
+**Created:** December 11, 2025  
+**Status:** ✅ All objectives complete, all services running
+
+
 
 ## 📋 Project Overview
 
@@ -605,50 +653,3 @@ Status: ✅ RUNNING & COLLECTING METRICS
 | Best practices & documentation | General | ✅ | Complete README, organized structure, detailed docs |
 
 ---
-
-## 📊 **Deployment Proof**
-
-### Kubernetes Resources Running
-
-```
-NAME                        READY   STATUS    RESTARTS   AGE
-pod/mysql-767dbc6f85-9svw6      1/1     Running   0          38m
-pod/nginx-5f5fd66f57-qg2vh      2/2     Running   0          11m
-pod/wordpress-89449b7f6-rs7zn   1/1     Running   0          5m54s
-
-DEPLOYMENT STATUS:
-NAME        READY   UP-TO-DATE   AVAILABLE
-mysql       1/1     1            1
-nginx       1/1     1            1
-wordpress   1/1     1            1
-```
-
-### Services Deployed
-
-```
-NAME                   TYPE           CLUSTER-IP      PORT(S)
-kubernetes             ClusterIP      10.96.0.1       443/TCP
-my-release-wordpress   LoadBalancer   10.108.3.107    80:31646/TCP,9113:31395/TCP
-mysql-service          ClusterIP      10.107.128.31   3306/TCP
-wordpress-service      ClusterIP      10.98.75.175    9000/TCP
-```
-
-### Helm Release Status
-
-```
-NAME        NAMESPACE  REVISION  STATUS    CHART
-my-release  default    4         deployed  wordpress-stack-0.1.0
-```
-
-### Access URLs
-
-**Via Minikube Service:**
-```
-WordPress:  http://127.0.0.1:5769
-Metrics:    http://127.0.0.1:5770/metrics
-```
-
----
-
-**Created:** December 11, 2025  
-**Status:** ✅ All objectives complete, all services running
