@@ -4,6 +4,11 @@ A complete DevOps solution for deploying WordPress with Nginx (OpenResty) and My
 
 ---
 
+<img width="1176" height="963" alt="wordpress page" src="https://github.com/user-attachments/assets/34281d3a-9503-45de-ab05-fa8d87693c70" />
+<img width="696" height="673" alt="metrics" src="https://github.com/user-attachments/assets/bc1b99e7-7bcc-42d0-b3d6-f58848e3b576" />
+
+
+
 ## 📋 Project Overview
 
 This project fulfills all **Syfe Infra Intern - 2022** assignment objectives:
