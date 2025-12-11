@@ -1,0 +1,20 @@
+# Default values
+replicaCount: 1
+
+images:
+  mysql: pushpendra111/syfe-mysql:v1
+  wordpress: pushpendra111/syfe-wordpress:v1
+  nginx: pushpendra111/syfe-nginx:v1
+
+mysql:
+  rootPassword: "someweakpassword"
+  dbName: "wordpress"
+  user: "wordpress"
+  password: "wordpress_password"
+
+wordpress:
+  # Allow WordPress to work behind proxy
+  configExtra: "define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']); define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST']);"
+
+storage:
+  size: 1Gi

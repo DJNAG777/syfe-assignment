@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.storage.size }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce # Changed to Once for Minikube compatibility (Many requires NFS)
+  resources:
+    requests:
+      storage: {{ .Values.storage.size }}
